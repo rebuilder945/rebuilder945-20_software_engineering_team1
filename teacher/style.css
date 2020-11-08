@@ -1,9 +1,21 @@
 body
 {
-    background-color: white;
+    background-image: url('image/1.jpg');
+    background-color:white;
+    background-repeat: no-repeat;   
+    background-size:cover;  
+}
+.inputArea{
+        text-align:center;
+}
+h1{
+    text-align:center;
+    font-size: 30px;
 }
 ul{
+
     list-style-type:none;
+    font-size: 23px;
 }
 #submitButton{
     background-color:#66baff;
@@ -14,7 +26,6 @@ ul{
     text-decoration: none;
     display: inline-block;
     font-size: 20px;
-    margin: 14px 50px;
     cursor: pointer;
     border-radius: 10px;
 }
@@ -22,6 +33,8 @@ ul{
     display: flex;
 }
 li{
+    padding:8px 0px 8px;
+    font-size: 18px;
     list-style-type:none;
     display: flex;
     flex-direction: column;
@@ -33,11 +46,19 @@ a:link
 }
 a:visited 
 {
-    color: #6685eb;
+    color: yellow;
     text-decoration: none;
 }
 a:hover
 {
     color: #999999;
     text-decoration: underline;
+}
+.vote_detail{
+    position:absolute;
+    top: 575px;
+}
+.vote_result{
+    position:absolute;
+    top:605px;
 }
