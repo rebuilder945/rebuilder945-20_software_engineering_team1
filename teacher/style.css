@@ -1,0 +1,43 @@
+body
+{
+    background-color: white;
+}
+ul{
+    list-style-type:none;
+}
+#submitButton{
+    background-color:#66baff;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 14px 50px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+.lio{
+    display: flex;
+}
+li{
+    list-style-type:none;
+    display: flex;
+    flex-direction: column;
+}
+a:link
+{
+    color: #000000;
+    text-decoration: none;
+}
+a:visited 
+{
+    color: #6685eb;
+    text-decoration: none;
+}
+a:hover
+{
+    color: #999999;
+    text-decoration: underline;
+}
