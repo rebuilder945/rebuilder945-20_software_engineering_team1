@@ -11,9 +11,9 @@ var arrFir = [
     { "name": "第十组", "link": "https://www.cnblogs.com/Double-Ten/" },
     { "name": "第十一组", "link": "https://www.cnblogs.com/classzgroup11/" }];
 var arrSec = [
-    { "group": 1, "member": { "id": ["031802443", "031802219"] } },
-    { "group": 2, "member": { "id": ["031802442", "031802220"] } },
-    { "group": 3, "member": { "id": ["031802442", "031802220"] } },
+    { "group": 1, "member": { "id": ["031802127", "031802515","031802224","031802542","031802244","031802138","031802304","031802329","031802443","031802321"] } },
+    { "group": 2, "member": { "id": ["151803103", "031802320","031802322","031802638","031802427","031802302","031802530","031802303","",""] } },
+    { "group": 3, "member": { "id": ["021800527", "031802507","031802243","031802438","031801125"] } },
     { "group": 4, "member": { "id": ["031802442", "031802220"] } },
     { "group": 5, "member": { "id": ["031802442", "031802220"] } },
     { "group": 6, "member": { "id": ["031802442", "031802220"] } },
@@ -55,7 +55,7 @@ function GroupDetail(groupNum) {
 }
 $(document).ready(function () {
     for (var i = 0; i < arrFir.length; i++) {
-        $('#fir').append('<ul id=' + arrFir[i].name + ' class=' + i + 'groupUl><a href=' + arrFir[i].link + '>' + arrFir[i].name + '</a></ul> ');
+        $('#fir').append('<ul id=' + arrFir[i].name + ' class=groupUl><a href=' + arrFir[i].link + '>' + arrFir[i].name + '</a></ul> ');
         for (var j = 0; j < arrSec[i].member.id.length; j++) {
             (function (i, j) {
                 $('#' + arrFir[i].name + '').append('<li id=' + i + '' + arrSec[i].member.id[j] + '>' + arrSec[i].member.id[j] + '</li> ');
@@ -77,7 +77,7 @@ $(document).ready(function () {
             })(i, j);
         }
         (function (i) {
-            $('#' + arrFir[i].name + '').append('<div>0票</div><button onclick="GroupDetail(' + i + ')">详情</button>');
+            $('#' + arrFir[i].name + '').append('<div class=vote_result>0票</div><button class=vote_detail onclick="GroupDetail(' + i + ')">详情</button>');
         })(i);
 
     }

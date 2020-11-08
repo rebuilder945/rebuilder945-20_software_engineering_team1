@@ -1,106 +1,160 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>fffff</title>
-</head>
- <body>
-	<div align="center"><img src="head2.jpg" /></div>
-	<div  align="center">
-	<h4>ffff</h4>
-		<table id="main" >
-			<tr >
-				<td>
-					<input type="radio" name="option" checked="checked"/>1
-				</td>
-			</tr>
-			<tr>
-				<td style="width:550px">
-					<div id=0 style="background-color:#acd6ff; width:0; height:20px; border-width:0px;">
-					</div>
-				</td>
-				<td>
-					<label id="label0">0</label>票
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<input type="radio" name="option"  />2
-				</td>
-			</tr>
-			<tr >
-				<td>
-					<div id=1 style="background-color:#0066cc; height:20px; width:0; border-width:0px; border-color:blue; border-style:solid ; text-align:right;" ></div>
-					
-				</td>
-				<td>
-				<label id="label1">0</label>票
-				</td>
-			</tr>	
-			<tr >
-				<td>
-					<input type="radio" name="option"  />3
-				</td>
-			</tr>
-			<tr >
-				<td>
-					<div id=2 style="background-color:#ff7575; height:20px;width:0;  border-width:0px; border-color:blue; border-style:solid ; text-align:right;" ></div>
-					
-				</td>
-				<td>
-				<label id="label2">0</label>票
-				</td>
-			</tr>	
-			<tr>
-				<td>
-					<input type="radio" name="option" />4
-				</td>
-			</tr>
-			<tr >
-				<td>
-					<div id=3 style="background-color:#5cadad;height:20px;width:0; border-width:0px; border-color:blue; border-style:solid ; text-align:right;" ></div>
-					
-				</td>
-				<td>
-				<label id="label3"> 0 </label>票
-				</td>
-			</tr>
-		
-			<tr>
-				<td><p>
-					<input type="submit" value="确认投票" onclick="jsonf()"/>		
-				</td>
-			</tr>
-		</table>
-	</div>
-</body>
-<script type="text/javascript">
- 
-	//在每个投票选项后面写了个div，用div的宽度来代表当前该选项的投票数。
-	function vote(){	//函数vote，当点击确认投票的时候，调用vote方法
-		
-		//for循环的条件是，所有投票选项的个数。
-		for(var i = 0; i < document.getElementsByName("option").length; i++){
-			
-			//查找到是哪个投票选项被选中
-			if(document.getElementsByName("option")[i].checked == true){
-				var width = document.getElementById(i).style.width;	//获取到当前选项的宽度。
-				width = parseInt(width);//将宽度转化为int型，因为获取到的width的单位是px
-				width += 3;//改变width的值，这里就是定义每次投票的进度条的增速
-				document.getElementById(i).style.width = width+"px";//修改原div的宽度
-				
-				var label = "label"+i;//lable标签里面写的是当前的投票数目。
-				var num = document.getElementById(label).innerText;//获取到当前的票数
-				document.getElementById(label).innerText = ++num;//票数加1，并修改原值
-			}
-		}
- 
-		//alert("投票成功");
-		
-	}
-    var f={ffff:"qqq"};
-    function jsonf(){
-        alert(f.ffff);
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Login</title>
+    <style>
+        * {
+            font-family: 'montserrat', sans-serif;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            background: #333;
+        }
+        .login-box {
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100vh; /* vh 视口高度 viewport height 百分比单位*/
+            background-image: linear-gradient(
+                    45deg,
+                    #9fbaa8,
+                    #31354c
+            ); /*设置颜色渐变 方向(0deg垂直向上) 起点颜色 终点颜色*/
+            transition: 0.4s; /*过度效果  property duration timing-function delay 默认属性:all 0 ease 0*/
+        }
+        .login-form {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); /*定义 2D 转换8 */
+            color: white;
+            text-align: center;
+        }
+        .login-form h1 {
+            font-weight: 400;
+            margin-top: 0;
+        }
+        .txtb {
+            display: block;
+            box-sizing: border-box;
+            width: 240px;
+            background: #ffffff28;
+            border: 1px solid white;
+            padding: 10px 20px;
+            color: white;
+            outline: none;
+            margin: 10px 0;
+            border-radius: 6px;
+            text-align: center;
+        }
+        .login-btn {
+            width: 240px;
+            background: #2c3e50;
+            border: 0;
+            color: white;
+            padding: 10px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        .hide-login-btn {
+            color: #000;
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            cursor: pointer;
+            font-size: 30px;
+            opacity: 0.7;
+            transform: rotate(45deg); /*定义 2D 转换8 */
+        }
+        .show-login-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            border: 2px solid;
+            padding: 10px;
+            cursor: pointer;
+        }
+        .showed {
+            left: 0;
+        }
+    </style>
+	<script>
+         $("#saveUserInfo").click(function() {
+        var formObject = {};
+        var formArray =$("#userInfo").serializeArray();
+        $.each(formArray,function(i,item){
+            formObject[item.name] = item.value;
+        });
+        $.ajax({
+            url:"",
+            type:"post",
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify(formObject),
+            dataType: "json",
+            success:function(data){
+                alert(data.msg);
+            },
+            error:function(e){
+                alert("错误！！");
+            }
+        });
+    });
+
     }
+    </script>
+</head>
+<body>
+<div class="show-login-btn">
+    -> Show Login Form
+</div>
+
+<div class="login-box">
+    <div class="hide-login-btn">
+        +
+    </div>
+    <form action="index.html" method="POST" class="login-form" id="userInfo">
+        <h1>Welcome</h1>
+        <input class="txtb" type="text" name="student" placeholder="Username" /> 
+        <input class="txtb" type="password" name="123456" placeholder="Password" /> 
+        <input class="login-btn" type="submit" name="" value="Login" id="saveUserInfo" disabled />
+    </form>
+</div>
+<script type="text/javascript">
+    function hasClass(element, clssname) {
+        return element.className.match(new RegExp('(\\s|^)' + clssname + '(\\s|$)'))
+    }
+    function addClass(element, clssname) {
+        if (!this.hasClass(element, clssname)) element.className += ' ' + clssname
+    }
+    function removeClass(element, clssname) {
+        if (hasClass(element, clssname)) {
+            var reg = new RegExp('(\\s|^)' + clssname + '(\\s|$)')
+            element.className = element.className.replace(reg, ' ')
+        }
+    }
+    function toggleClass(element, clssname) {
+        if (hasClass(element, clssname)) {
+            removeClass(element, clssname)
+        } else {
+            addClass(element, clssname)
+        }
+    }
+    var loginBox = document.getElementsByClassName('login-box')
+    var showBtn = document.getElementsByClassName('show-login-btn')
+    var hideBtn = document.getElementsByClassName('hide-login-btn')
+    showBtn[0].addEventListener('click', function() {
+        toggleClass(loginBox[0], 'showed')
+    })
+    hideBtn[0].addEventListener('click', function() {
+        toggleClass(loginBox[0], 'showed')
+    })
 </script>
+</body>
 </html>
