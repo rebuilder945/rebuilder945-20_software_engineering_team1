@@ -47,4 +47,20 @@ gcursor = mydb.cursor()
 gcursor.execute("SELECT user_id,user_vote FROM account")
 result = gcursor.fetchall()
 
-print(result)
+ret = "{\"status\":\"true\",\"stu_form\":{"
+
+
+student_form = {'user_id':'','user_vote':''}
+cnt = 1
+for i in result:
+    if cnt != 1:
+        ret += ","
+    ++cnt
+    student_form['user_id'] = i[0]
+    student_form['user_vote'] = i[1]
+    ret += json.dumps(student_form)
+
+ret += "}}"
+
+#模拟信息回送
+print(ret)
