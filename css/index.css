@@ -1,0 +1,19 @@
+body{
+    background-image: url("../pt/timg.jpg") ;
+    background-size:100% 100%;
+    background-attachment: fixed;
+}
+h1{
+    position: absolute;
+    left: 40%;
+}
+.form{
+    position: absolute;
+    top:10%;
+    left:36%;
+    font-size: 32px;
+}
+.button{
+    position: absolute;
+    
+    left:25%;
